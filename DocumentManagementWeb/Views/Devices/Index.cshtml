@@ -1,0 +1,38 @@
+﻿@using DocumentManagementWeb.Utility;
+@model IEnumerable<DocumentManagementWeb.Models.Device>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+@if (User.IsInRole(SD.Role_Admin))
+{
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+}
+<table id="tblData" class="table table-bordered table-striped" style="width:100%">
+
+    <thead>
+        <tr>
+
+
+            <th>IP</th>
+            <th>Name</th>
+            <th>
+                CreatedDateTime
+            </th>
+            <th>
+                UpdatedDateTime
+            </th>
+            <th></th>
+
+        </tr>
+    </thead>
+
+</table>
+@section Scripts{
+
+    <script src="~/js/Devices.js"></script>
+}

@@ -1,0 +1,70 @@
+﻿<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+@model DocumentManagementWeb.VM.MainVM;
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
+
+<link href="~/css/site.css" />
+
+@if (Model != null)
+{
+    <div class="dropdown">
+        <button onclick="myFunction()" class="dropbtn">Notifications (@Model.notifications.Count())</button>
+        <br>
+        <br>
+        <br>
+        <div id="myDropdown" class="dropdown-content">
+            @foreach (Notification item in Model.notifications)
+            {
+                <p>@item.Msg</p>
+                <form asp-controller="Home" asp-action="DeleteConfirmed">
+                    <input type="hidden" name="Id"  asp-for="@item.Id" />
+                    <button type="submit" class="btn btn-danger"><i class="fa-sharp fa-regular fa-circle-xmark"></i></button>
+
+                </form>
+            }
+        </div>
+    </div>
+
+    <br />
+            
+ <table id="tblData" class="table table-bordered table-striped" style="width:100%">
+           
+     <thead>
+                <tr>
+
+
+                <th>userName</th>
+                <th>fileName</th>
+                <th>createdAt</th>
+                    <th>
+
+                    </th>
+
+                </tr>
+            </thead>
+
+</table>
+    <form asp-action="DownloadFile">
+
+        <div class="form-group">
+            <label class="control-label"> Enter Pdf Name To Download</label>
+            <input name="filename" class="form-control" />
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Download" class="btn btn-primary" />
+        </div>
+    </form>
+    }
+
+
+
+
+
+    @section Scripts{
+    <script src="~/js/files.js"></script>
+}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js"></script>
+<script src="~/js/drop.js"></script>

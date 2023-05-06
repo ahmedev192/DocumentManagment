@@ -1,0 +1,32 @@
+﻿@model string
+<form method="post" enctype="multipart/form-data" asp-controller="AdminPannel" asp-action="Index">
+    <div asp-validation-summary="All"></div>
+
+
+    <div class="mb-3">
+        <label class="form-label">
+            Upload File
+        </label>
+
+
+        <input type="file" name="file" class="form-control" />
+
+
+
+    </div>
+    <div class="form-floating mb-3">
+        <input name="email" class="form-control" autocomplete="email" aria-required="true" placeholder="email" />
+        <label> Enter Email To Add Docs</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input name="notification" class="form-control" autocomplete="notification" aria-required="true" placeholder="notification" />
+        <label> Enter Message To Be Sent</label>
+    </div>
+    <div class="mb-3">
+
+        <button type="submit" class="btn btn-primary" ID="UploadButton" Text="Upload file" >
+            Upload
+        </button>
+    </div>
+</form>
+

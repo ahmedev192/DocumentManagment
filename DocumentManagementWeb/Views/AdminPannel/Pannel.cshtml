@@ -1,0 +1,36 @@
+﻿@model DocumentManagementWeb.VM.MainVM;
+
+@if (Model != null)
+{
+
+     <table id="tblData" class="table table-bordered table-striped" style="width:100%">
+
+         <thead>
+                    <tr>
+
+
+                    <th>userName</th>
+                    <th>fileName</th>
+                    <th>createdAt</th>
+
+
+                    </tr>
+                </thead>
+
+    </table>
+}
+<form asp-action="DownloadFile">
+
+    <div class="form-group">
+        <label class="control-label"> Enter Pdf Name To Download</label>
+        <input name="filename" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Download" class="btn btn-primary" />
+    </div>
+</form>
+
+@section Scripts{
+    <script src="~/js/adminfiles.js"></script>
+}
